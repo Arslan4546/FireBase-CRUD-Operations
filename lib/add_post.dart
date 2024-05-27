@@ -58,15 +58,17 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   setState(() {
                     loading = true;
                   });
-                  databaseRef.child(DateTime.now().microsecondsSinceEpoch.toString()).set(
+                  String id = DateTime.now().microsecondsSinceEpoch.toString();
+                  databaseRef.child(id).set(
                     {
-                      "id": DateTime.now().microsecondsSinceEpoch.toString(),
+                      "id": id,
                       "title" : postController.text.toString(),
                     }
                   ).then((value){
                     Utils().toastMessage("Post is added successfully!");
                     setState(() {
                       loading = false;
+                      postController.clear();
                     });
                   }).onError((error, stackTrace){
                     Utils().toastMessage(error.toString());
