@@ -1,3 +1,4 @@
+import 'package:firebase_getset/components/firestore/firestore_db_screen.dart';
 import 'package:firebase_getset/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,7 +25,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: FireStoreScreen(),
     );
   }
 }
